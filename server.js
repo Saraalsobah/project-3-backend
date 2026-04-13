@@ -9,7 +9,8 @@ const authRouter = require('./controllers/auth.routes');
 const verifyToken = require('./middleware/verify-token');
 
 
-mongoose.connect(process.env.MONGODB_URI);
+const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI;
+mongoose.connect(mongoUri);
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -23,6 +24,6 @@ app.use(logger('dev'));
 app.use('/auth', authRouter);
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('The express app is ready!');
 });
