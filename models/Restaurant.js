@@ -34,7 +34,6 @@ const restaurantSchema = new mongoose.Schema({
     logourl: {type:String, required:true},
     menuItems: [menuItemSchema],    
     author: {type:mongoose.Schema.Types.ObjectId, ref:'User'},
-    reviews: [reviewSchema] 
 }, {timestamps:true})
 
 
