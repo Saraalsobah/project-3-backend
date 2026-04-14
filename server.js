@@ -7,6 +7,8 @@ const cors = require('cors');
 const logger = require('morgan');
 const authRouter = require('./controllers/auth.routes');
 const verifyToken = require('./middleware/verify-token');
+const restaurantRouter = require('./controllers/restaurant.routes');
+
 
 
 const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI;
@@ -22,6 +24,7 @@ app.use(logger('dev'));
 
 // Routes go here
 app.use('/auth', authRouter);
+app.use('/restaurants', verifyToken, restaurantRouter);
 
 
 app.listen(process.env.PORT || 3000, () => {
