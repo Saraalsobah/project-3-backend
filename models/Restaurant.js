@@ -20,6 +20,7 @@ const menuItemSchema = new mongoose.Schema(
             enum:['Appetizer','Main','Dessert','Drink','Side'],
             required:true,
         },
+        imageUrl: { type: String }
 
     },
     
