@@ -34,6 +34,7 @@ router.put('/:id/menu-items/:menuItemId', verifyToken, async (req,res) => {
         const foundMenuItem = foundRestaurant.menuItems.id(req.params.menuItemId)
 
         foundMenuItem.name = req.body.name
+        foundMenuItem.imageUrl = req.body.imageUrl 
         foundMenuItem.price = req.body.price
         foundMenuItem.category = req.body.category
 
